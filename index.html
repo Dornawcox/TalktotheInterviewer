@@ -180,7 +180,7 @@ grazing:{name:"Talk to the Land",v:"1.1",desc:"Place-based stewards and conserva
 {id:"gf2",t:"What would help you?",p:"Next 6 months."},
 {id:"gf3",t:"What should never be misunderstood out of context?",p:"Redaction guidance."}]}]},
 
-lwg:{name:"Talk to your District",v:"1.1",desc:"NRCS Local Working Group needs assessments",icon:"\uD83C\uDFDB\uFE0F",logo:"https://openteam-agreements.community/assets/logo.png",sections:[
+lwg:{name:"Talk to your District",v:"1.1",desc:"NRCS Local Working Group needs assessments",icon:"\uD83C\uDFDB\uFE0F",logo:"https://marionswcd.org/wp-content/uploads/NACD-logo.png",sections:[
 {id:"lp",title:"Pre-Questions",sub:"Before recording",qs:[
 {id:"lp1",t:"Who are you, and what is your connection to this conservation district?",p:"Role, organization, how long involved, what brought them here."},
 {id:"lp2",t:"Consent to record? Your voice will feed the Conservation Needs Assessment for this district.",p:"Explain how input shapes priorities and program delivery."}]},
@@ -200,7 +200,7 @@ lwg:{name:"Talk to your District",v:"1.1",desc:"NRCS Local Working Group needs a
 {id:"lf3",t:"Are there resource concerns that cross district or county lines? Who would need to be at the table to address them?",p:"Regional coordination. Note the multi-stakeholder dependencies."},
 {id:"lf4",t:"What new initiative would you champion if you had the resources?",p:"Their vision. Innovative practices, pilots, partnerships."}]}]},
 
-farmhack:{name:"Talk to the Farm",v:"1.1",desc:"Farmer-to-farmer knowledge, open source tools",icon:"\uD83D\uDD27",logo:"https://farmhack.org/sites/all/themes/flavor/logo.png",sections:[
+farmhack:{name:"Talk to the Farm",v:"1.1",desc:"Farmer-to-farmer knowledge, open source tools",icon:"\uD83D\uDD27",logo:"https://farmhack.org/sites/default/files/styles/large/public/2025-08/farm-hack-logo.png.webp?itok=DpXsmA-n",sections:[
 {id:"fp",title:"Pre-Questions",sub:"Before recording",qs:[
 {id:"fp1",t:"Who are you?",p:"Name, farm, what you grow or build."},
 {id:"fp2",t:"Consent to record?",p:"Output: tool card, practitioner profile for the network."},
@@ -221,7 +221,7 @@ farmhack:{name:"Talk to the Farm",v:"1.1",desc:"Farmer-to-farmer knowledge, open
 {id:"fd5",t:"What can you offer the Farm Hack network — and what would help you most in the next growing season?",p:"Offer and ask in one question. Skills, tools, hosting, testing, mentorship, land."},
 {id:"fd6",t:"If we could build one thing together as a community of farmer-innovators, what should it be?",p:"Collective vision. What is worth pooling effort for."}]}]},
 
-gosh:{name:"GOSH / Open Science Hardware",v:"1.1",desc:"Open source scientific instruments",icon:"\uD83D\uDD2C",logo:"https://openhardware.science/wp-content/uploads/2017/01/gosh-logo-1.png",sections:[
+gosh:{name:"GOSH / Open Science Hardware",v:"1.1",desc:"Open source scientific instruments",icon:"\uD83D\uDD2C",logo:"https://openhardware.science/wp-content/uploads/2021/08/gosh-logo.png",sections:[
 {id:"ghp",title:"Pre-Questions",sub:"Before recording",qs:[
 {id:"ghp1",t:"Who are you?",p:"Name, affiliation, field."},
 {id:"ghp2",t:"Consent to record?",p:"Output: hardware registry entry and community map."},
@@ -338,15 +338,11 @@ h("div",null,h("div",{className:"sn"},v.name),h("div",{className:"mt sm"},"v"+v.
 h("div",{className:"mt sm",style:{marginTop:"4px",marginLeft:"34px"}},v.sections.length+" sections, "+v.sections.reduce(function(a,s){return a+s.qs.length},0)+" questions")))});
 return h("div",null,
 h("div",{className:"hdr"},
-h("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:"8px"}},
-h("div",{style:{display:"flex",alignItems:"center",gap:"10px"}},
-h("img",{src:"https://openteam-agreements.community/assets/logo.png",style:{height:"30px",borderRadius:"3px",background:"#fff",padding:"2px"},alt:"OpenTEAM",onError:function(ev){ev.target.style.display="none"}}),
-h("img",{src:"https://agricultural-knowledge-concordance.github.io/Ag-Knowledge-Concordance/assets/logo.png",style:{height:"30px",borderRadius:"3px"},alt:"AKC",onError:function(ev){ev.target.style.display="none"}})),
-h("div",{style:{fontSize:"10px",opacity:.6,textAlign:"right"}},"v1.1")),
-h("div",{style:{fontSize:"13px",opacity:.7,letterSpacing:".04em"}},
-"OpenTEAM \u00B7 ",h("span",{style:{fontWeight:"400"}},"Interviewer Guide")),
-h("h1",null,"Talk to the..."),
+h("div",{style:{display:"flex",alignItems:"flex-start",justifyContent:"space-between"}},
+h("div",null,
+h("h1",null,"\uD83C\uDF3F Talk to the..."),
 h("p",null,"Ag Knowledge Concordance \u00B7 Participatory Ecosystem Mapping")),
+h("img",{src:"https://agricultural-knowledge-concordance.github.io/Ag-Knowledge-Concordance/assets/logo.png",style:{height:"90px",borderRadius:"6px",marginLeft:"12px",flexShrink:"0"},alt:"Ag Knowledge Concordance",onError:function(ev){ev.target.style.display="none"}}))),
 h("div",{className:"mn"},
 h("div",{className:"cd"},
 h("div",{className:"tg"},"Select Question Set"),
