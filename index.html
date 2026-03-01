@@ -47,7 +47,15 @@ input,select{width:100%;padding:10px 12px;border:1px solid #D4DDD8;border-radius
 .dt{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:1px solid #D4DDD8;background:#fff;color:#999;font-family:inherit}
 .dta{border:2px solid #1B4332;background:#E8F0E8;color:#1B4332}
 .dtf{background:#52B788;color:#fff;border-color:#52B788}
+.dtr{box-shadow:0 0 0 2px #E8A838}
 .so{padding:14px 18px;border-radius:10px;margin-bottom:8px;cursor:pointer;border:1px solid #D4DDD8;background:#fff}
+.stars{display:flex;gap:2px;margin-top:10px;margin-bottom:4px}
+.star{width:28px;height:28px;border-radius:4px;border:1px solid #D4DDD8;background:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .15s;color:#D4DDD8}
+.star.on{background:#FEF3C7;border-color:#E8A838;color:#E8A838}
+.star:hover{border-color:#E8A838}
+.qmeta{width:100%;padding:8px 10px;border:1px solid #E8E0D4;border-radius:6px;font-family:inherit;font-size:12px;outline:none;line-height:1.4;background:#FFFBF0;color:#8B7355;font-style:italic;resize:none;min-height:36px;margin-top:4px}
+.qmeta::placeholder{color:#C4B28A}
+.qlabel{font-size:11px;color:#B8A07A;margin-top:10px;font-weight:600}
 .soa{border:2px solid #2D6A4F;background:#F0F7F4}
 .so:hover{border-color:#52B788}
 .sn{font-weight:700;font-size:16px;color:#1B4332}
@@ -217,6 +225,8 @@ var s1=US("core"),sel=s1[0],setSel=s1[1];
 var s2=US(0),cSec=s2[0],setCSec=s2[1];
 var s3=US(0),cQ=s3[0],setCQ=s3[1];
 var s4=US({}),notes=s4[0],setNotes=s4[1];
+var s4b=US({}),qRate=s4b[0],setQRate=s4b[1];
+var s4c=US({}),qMeta=s4c[0],setQMeta=s4c[1];
 var s5=US(""),hl=s5[0],setHl=s5[1];
 var s6=US({}),con=s6[0],setCon=s6[1];
 var s7=US(false),isRec=s7[0],setIsRec=s7[1];
@@ -269,8 +279,18 @@ var x="Talk to the... Interview Transcript\nSet: "+qs.name+" v"+qs.v+"\nDate: "+
 "\nAudio: "+(con.audio_store||"-")+"\nSensitive: "+(con.sensitive||"-")+
 "\n\n========================================\n\nHEADLINE: "+(hl||"(not captured)")+"\n\n";
 for(var i=0;i<secs.length;i++){x+="-- "+secs[i].title+" --\n\n";
-for(var j=0;j<secs[i].qs.length;j++){x+="Q: "+secs[i].qs[j].t+"\nA: "+(notes[secs[i].qs[j].id]||"(no notes)")+"\n\n"}}
+for(var j=0;j<secs[i].qs.length;j++){var qid=secs[i].qs[j].id;x+="Q: "+secs[i].qs[j].t+"\nA: "+(notes[qid]||"(no notes)")+"\n";if(qRate[qid])x+="[Question Quality: "+qRate[qid]+"/5]\n";if(qMeta[qid])x+="[Interviewer Note on Question: "+qMeta[qid]+"]\n";x+="\n"}}
 if(fb)x+="\n-- FEEDBACK --\n"+fb+"\n";
+var rk=Object.keys(qRate);if(rk.length>0){x+="\n-- QUESTION QUALITY SUMMARY --\n";var rSum=0,rCt=0;for(var i=0;i<rk.length;i++){rSum+=qRate[rk[i]];rCt++}x+="Average rating: "+(rSum/rCt).toFixed(1)+"/5 ("+rCt+" questions rated)\n";
+var low=[];for(var i=0;i<rk.length;i++){if(qRate[rk[i]]<=2){for(var si=0;si<secs.length;si++){for(var qi=0;qi<secs[si].qs.length;qi++){if(secs[si].qs[qi].id===rk[i])low.push(secs[si].qs[qi].t)}}}}
+if(low.length>0){x+="Questions rated low (<=2):\n";for(var i=0;i<low.length;i++)x+="  - "+low[i]+"\n"}}
+x+="\n-- TRANSCRIPTION GUIDANCE --\n";
+x+="To transcribe the audio recording with speaker diarization:\n";
+x+="1. Install aTrain (free, Microsoft Store) or Vibe (free, all platforms)\n";
+x+="2. Select Whisper large-v3-turbo model for best speed/accuracy balance\n";
+x+="3. Set expected speakers to 2 (interviewer + participant)\n";
+x+="4. Import this transcript alongside the diarized output for analysis\n";
+x+="File naming: "+d+"_"+sel+"_"+nm.replace(/\s+/g,"-")+"_[type].[ext]\n";
 x+="\n========================================\nExported: "+new Date().toISOString()+"\n";
 var b=new Blob([x],{type:"text/plain"});var u=URL.createObjectURL(b);
 var a=document.createElement("a");a.href=u;a.download=d+"_"+sel+"_"+nm.replace(/\s+/g,"-")+"_transcript.txt";
@@ -278,7 +298,7 @@ a.click();URL.revokeObjectURL(u);
 }
 function nx(){if(cQ<sec.qs.length-1)setCQ(cQ+1);else if(cSec<secs.length-1){setCSec(cSec+1);setCQ(0)}else setVw("close")}
 function pv(){if(cQ>0)setCQ(cQ-1);else if(cSec>0){setCSec(cSec-1);setCQ(secs[cSec-1].qs.length-1)}}
-function reset(){setVw("setup");setNotes({});setHl("");setCon({});setFb("");setFbs(false);setCSec(0);setCQ(0);ch.current=[];setRt(0)}
+function reset(){setVw("setup");setNotes({});setQRate({});setQMeta({});setHl("");setCon({});setFb("");setFbs(false);setCSec(0);setCQ(0);ch.current=[];setRt(0)}
 
 /* ---- SETUP ---- */
 if(vw==="setup"){
@@ -363,7 +383,22 @@ h("button",{className:"bt bp",onClick:dlTxt},"\uD83D\uDCC4 Save Transcript (.txt
 ch.current.length>0?h("button",{className:"bt bs",onClick:dlAudio},"\uD83C\uDFA4 Save Audio (.webm)"):null),
 hl?h("div",{className:"pb",style:{marginBottom:"20px"}},
 h("div",{style:{fontSize:"11px",fontWeight:"700",color:"#E8A838",marginBottom:"4px"}},"HEADLINE"),
-h("div",{style:{fontStyle:"italic"}},hl)):null),
+h("div",{style:{fontStyle:"italic"}},hl)):null,
+(function(){var rk=Object.keys(qRate);if(rk.length===0)return null;var sum=0;for(var i=0;i<rk.length;i++)sum+=qRate[rk[i]];var avg=(sum/rk.length).toFixed(1);
+return h("div",{style:{padding:"12px 16px",background:"#FFFBF0",borderRadius:"8px",border:"1px solid #E8D5A0",marginBottom:"20px"}},
+h("div",{style:{fontSize:"12px",fontWeight:"700",color:"#B8860B",marginBottom:"6px"}},"QUESTION SET QUALITY"),
+h("div",{style:{fontSize:"14px"}},rk.length+" questions rated, average: "+avg+"/5 \u2605"))})()),
+h("div",{className:"cd"},
+h("div",{className:"tg"},"Next Step: Transcribe with aTrain"),
+h("p",{className:"mt",style:{marginBottom:"12px"}},"For speaker-labeled transcription of the audio recording:"),
+h("div",{style:{fontSize:"13px",lineHeight:"1.7",color:"#555"}},
+h("div",null,"\u2460 Install ",h("strong",null,"aTrain")," (free, Windows Microsoft Store) or ",h("strong",null,"Vibe")," (free, Mac/Win/Linux)"),
+h("div",null,"\u2461 Open the saved .webm audio file (convert to .wav first if needed via VLC or ffmpeg)"),
+h("div",null,"\u2462 Select ",h("strong",null,"Whisper large-v3-turbo")," model \u2014 best speed/accuracy for interviews"),
+h("div",null,"\u2463 Set expected speakers to ",h("strong",null,"2")," (interviewer + participant)"),
+h("div",null,"\u2464 Export diarized transcript \u2192 import alongside this question-set transcript into your QDA tool"),
+h("div",{style:{marginTop:"8px",padding:"8px 12px",background:"#F0F7F4",borderRadius:"6px",fontSize:"12px",color:"#2D6A4F"}},
+"\uD83D\uDD12 All tools listed process audio locally. Nothing is uploaded to any server."))),
 h("div",{className:"cd"},
 h("div",{className:"tg"},"Feedback on Question Set"),
 h("p",{className:"mt",style:{marginBottom:"12px"}},"Help improve future versions."),
@@ -385,7 +420,7 @@ secs[si].title.length>28?secs[si].title.slice(0,26)+"...":secs[si].title))})(i)}
 var dots=[];
 for(var i=0;i<sec.qs.length;i++){
 (function(qi){dots.push(h("div",{key:sec.qs[qi].id,
-className:"dt"+(qi===cQ?" dta":"")+(notes[sec.qs[qi].id]&&notes[sec.qs[qi].id].trim()?" dtf":""),
+className:"dt"+(qi===cQ?" dta":"")+(notes[sec.qs[qi].id]&&notes[sec.qs[qi].id].trim()?" dtf":"")+(qRate[sec.qs[qi].id]?" dtr":""),
 onClick:function(){setCQ(qi)}},qi+1))})(i)}
 
 return h("div",null,
@@ -408,6 +443,10 @@ sec.sub?h("div",{className:"mt sm",style:{marginBottom:"12px"}},sec.sub):null,
 h("div",{className:"qt"},q.t),
 h("div",{className:"pb"},"\uD83D\uDCA1 "+q.p),
 h("textarea",{value:notes[q.id]||"",onChange:function(ev){var n=cp(notes);n[q.id]=ev.target.value;setNotes(n)},placeholder:"Notes from participant response..."}),
+h("div",{className:"qlabel"},"Question quality (how well did this question work?)"),
+h("div",{className:"stars"},
+[1,2,3,4,5].map(function(star){return h("div",{key:star,className:"star"+((qRate[q.id]||0)>=star?" on":""),onClick:function(){var r=cp(qRate);r[q.id]=star;setQRate(r)}},"\u2605")})),
+h("textarea",{className:"qmeta",value:qMeta[q.id]||"",onChange:function(ev){var m=cp(qMeta);m[q.id]=ev.target.value;setQMeta(m)},placeholder:"Note about this question (e.g. rephrase needed, participant confused, great prompt...)",rows:2}),
 h("div",{className:"br"},
 h("button",{className:"bt bg",onClick:pv,disabled:cSec===0&&cQ===0},"\u2190 Previous"),
 h("span",{className:"mt sm"},(cSec+1)+"."+(cQ+1)),
