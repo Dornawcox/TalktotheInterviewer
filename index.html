@@ -75,7 +75,7 @@ var h=React.createElement,F=React.Fragment;
 var US=React.useState,UR=React.useRef,UE=React.useEffect;
 
 var QS={
-core:{name:"Core Questions",v:"1.0",desc:"Universal question set for all deployments",icon:"\uD83D\uDDFA\uFE0F",logo:"https://agricultural-knowledge-concordance.github.io/Ag-Knowledge-Concordance/assets/logo.png",sections:[
+core:{name:"Core Questions",v:"1.0",desc:"Universal question set for all deployments",icon:"\uD83D\uDDFA\uFE0F",logo:"https://openteam-agreements.community/assets/logo.png",sections:[
 {id:"pre",title:"Pre-Questions",sub:"Ask before recording",qs:[
 {id:"pre1",t:"Who are you?",p:"Let them introduce themselves naturally."},
 {id:"pre2",t:"Do I have your consent to record this interview?",p:"Explain: audio transcribed, they control visibility, can stop anytime."},
@@ -117,36 +117,32 @@ core:{name:"Core Questions",v:"1.0",desc:"Universal question set for all deploym
 {id:"d62",t:"What would help you move faster or more safely in 6 months?",p:"Concrete asks."},
 {id:"d63",t:"2-3 years from now, what shows we made progress together?",p:"Forward-looking."}]}]},
 
-concordance:{name:"Ag Knowledge Concordance",v:"1.0",desc:"Mapping agricultural data, archives, and knowledge networks",icon:"\uD83D\uDD17",logo:"https://agricultural-knowledge-concordance.github.io/Ag-Knowledge-Concordance/assets/logo.png",sections:[
-{id:"cp",title:"Pre-Questions",sub:"Before recording",qs:[
-{id:"cp1",t:"Who are you?",p:"Name, role, organization or affiliation."},
-{id:"cp2",t:"Consent to record? This feeds the Concordance project map.",p:"Explain: audio stays local, transcript reviewed before sharing."},
-{id:"cp3",t:"Are you affiliated with an archive, data network, or are you an independent data practitioner?",p:"Archive = long-term preservation. Network = providers/aggregators. Practitioner = individual."},
-{id:"cp4",t:"Have you participated in a Concordance event before?",p:"Online, in person, or first time. Sets context."},
-{id:"cp5",t:"What geographic region or communities does your data work serve?",p:"Note scale: local, regional, national, international."}]},
+concordance:{name:"Ag Knowledge Concordance",v:"1.1",desc:"Mapping agricultural data, archives, and knowledge networks",icon:"\uD83D\uDD17",logo:"https://agricultural-knowledge-concordance.github.io/Ag-Knowledge-Concordance/assets/logo.png",sections:[
+{id:"cp",title:"Pre-Questions",sub:"Before recording — maps to onboarding form",qs:[
+{id:"cp1",t:"Who are you, and what organization or community are you affiliated with?",p:"Name, role, organization. Note if independent practitioner."},
+{id:"cp2",t:"Consent to record? This conversation feeds the Concordance project map and may be used to build your project profile.",p:"Audio stays local. They review transcript before anything is shared."},
+{id:"cp3",t:"Are you primarily a data steward, a data user, part of a data network, or affiliated with an archive?",p:"From the form: archive (long-term preservation), data network (providers/aggregators), data steward, data user, data practitioner. People may be several."},
+{id:"cp4",t:"Have you participated in a Concordance event before? What brought you here?",p:"Online, in-person, or first time. Sets context for depth of questions."},
+{id:"cp5",t:"What is the primary focus of your work, and what geographic region or communities does it serve?",p:"Agriculture, climate, food systems, indigenous knowledge, other. Note scale."}]},
 {id:"cq",title:"Concordance Quick Pass",sub:"5-10 min",qs:[
-{id:"cq1",t:"In a sentence or two: what agricultural knowledge, data, or archive do you steward, and for whom?",p:"This becomes the lead line of their Concordance profile card."},
-{id:"cq2",t:"Who do you consider your community in this work, and what do you love about being part of it?",p:"Listen for relational ties: other data stewards, farmers, researchers, agencies, networks they depend on."},
-{id:"cq3",t:"Tell me a story about a time your data or knowledge connected with someone else's work in a way that surprised you.",p:"Story prompt. Surfaces unexpected interdependencies and value of shared infrastructure."},
-{id:"cq4",t:"What is the hardest part of keeping your data alive, findable, and useful over time?",p:"Maintenance, funding, metadata, formats, institutional support. The stewardship reality."},
+{id:"cq1",t:"Who do you consider your community in this work, and what do you love about being part of it?",p:"Relational ties first. Other data stewards, farmers, researchers, archivists, indigenous partners, agencies."},
+{id:"cq2",t:"If you produce or curate datasets, tell me what they are and how they are currently stored and updated.",p:"Direct from the form. Note platforms, formats, update frequency, who has access."},
+{id:"cq3",t:"Tell me about a time your data or knowledge connected with someone else's work in a way that mattered.",p:"Story prompt. Surfaces value of interoperability and unexpected connections."},
+{id:"cq4",t:"What is the most urgent or endangered archive or dataset you are aware of that needs attention right now?",p:"Direct from the form. Data at risk of loss, defunding, format obsolescence, or institutional collapse."},
 {id:"cq5",t:"What gives you hope about the future of shared agricultural knowledge?",p:"End on hope. What is emerging, getting better, worth building toward?"}]},
-{id:"cd",title:"Data Landscape and Interoperability",sub:"Deep interview",qs:[
-{id:"cd1",t:"Walk me through the journey of a dataset or knowledge artifact you steward, from creation to its most recent use by someone else.",p:"Narrative arc: origin, curation, discovery, reuse. Let the story unfold."},
-{id:"cd2",t:"Who else depends on the data or knowledge you maintain, and whose work do you depend on?",p:"Map mutual dependencies: upstream sources, downstream users, peer archives, complementary datasets."},
-{id:"cd3",t:"What standards, vocabularies, or formats do you use? Which ones cause the most friction when connecting with others?",p:"Note specific standards. The friction points reveal where concordance is most needed."},
-{id:"cd4",t:"Tell me about a time when data that should have been compatible was not, and what happened as a result.",p:"Story of interoperability failure. Reveals real cost of fragmentation."},
-{id:"cd5",t:"If the Concordance could solve one connection problem for you, what would it be?",p:"Their top priority. Concrete and actionable."}]},
-{id:"ct",title:"Trust, Governance and Reciprocity",sub:"",qs:[
-{id:"ct1",t:"When you share data, what do you need to know about who is receiving it and how they will use it?",p:"Trust conditions. What makes sharing feel safe vs extractive?"},
-{id:"ct2",t:"Tell me about a time when agricultural data was used in a way that helped or harmed the people it came from.",p:"Story prompt for data ethics. Both positive and cautionary examples welcome."},
-{id:"ct3",t:"What governance or reciprocity practices would make you more willing to connect your work to a shared network?",p:"Attribution, access control, review rights, benefit sharing. What would earn trust?"},
-{id:"ct4",t:"What does the Concordance need to protect that existing platforms do not?",p:"Gaps in current governance. Indigenous data sovereignty, farmer privacy, competitive info, sensitive species."}]},
+{id:"cd",title:"Data Sovereignty and Networks",sub:"Deep interview",qs:[
+{id:"cd1",t:"What is the key research network or indigenous community you are engaging with around data sovereignty and knowledge preservation?",p:"Direct from the form. Listen for governance protocols, CARE principles, tribal data sovereignty, community data trusts."},
+{id:"cd2",t:"Tell me a story about what happens when agricultural data crosses a boundary it was not designed to cross — between institutions, communities, nations, or languages.",p:"Narrative of friction or unexpected connection. Reveals where concordance is most needed."},
+{id:"cd3",t:"Who depends on the data or knowledge you maintain, and whose work do you depend on to do yours?",p:"Map mutual dependencies. Upstream sources, downstream users, peer archives, complementary datasets."},
+{id:"cd4",t:"When you share data, what do you need to know about who is receiving it and how they will use it? When does sharing feel extractive?",p:"Trust conditions. Governance requirements. Note the red lines."},
+{id:"cd5",t:"What governance or reciprocity practices would make you more willing to connect your work to a shared network like the Concordance?",p:"Attribution, access control, review rights, benefit sharing. What earns trust?"}]},
 {id:"cf",title:"Offers, Asks and Futures",sub:"",qs:[
-{id:"cf1",t:"What can you offer the Concordance network?",p:"Data, metadata, vocabularies, crosswalks, training, hosting, review, introductions."},
-{id:"cf2",t:"What would help you connect your work to others more easily in the next 6 months?",p:"Concrete ask. Tools, standards, introductions, funding, documentation support."},
-{id:"cf3",t:"If we looked back in 3 years and the Concordance had succeeded, what would be different about how agricultural knowledge moves?",p:"Vision of success. What changes for farmers, researchers, archives, communities?"}]}]},
+{id:"cf1",t:"What is one topic you would like to see covered or discussed in future Concordance convenings?",p:"Direct from the form. Note gaps in current conversation."},
+{id:"cf2",t:"What other projects are you working on in this space that the Concordance should know about?",p:"From the form. Note URLs, partner organizations, related initiatives. Larger projects should fill out their own form."},
+{id:"cf3",t:"What can you offer the Concordance network, and what would help you connect your work to others in the next 6 months?",p:"Offer and ask. Data, metadata, vocabularies, crosswalks, training, introductions. Concrete needs."},
+{id:"cf4",t:"Is there anything else we should capture — something this conversation has not yet asked about?",p:"Direct from the form. Open-ended catch-all. Often produces the most important insight."}]}]},
 
-grazing:{name:"Talk to the Land",v:"1.1",desc:"Place-based stewards and conservation districts",icon:"\uD83C\uDF3E",logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/USDA_logo.svg/120px-USDA_logo.svg.png",sections:[
+grazing:{name:"Talk to the Land",v:"1.1",desc:"Place-based stewards and conservation districts",icon:"\uD83C\uDF3E",logo:"https://openteam-agreements.community/assets/logo.png",sections:[
 {id:"gp",title:"Pre-Questions",sub:"Before recording",qs:[
 {id:"gp1",t:"Who are you?",p:"Name, operation, landscape."},
 {id:"gp2",t:"Consent to record?",p:"Outputs: land profile, community map."},
@@ -184,7 +180,7 @@ grazing:{name:"Talk to the Land",v:"1.1",desc:"Place-based stewards and conserva
 {id:"gf2",t:"What would help you?",p:"Next 6 months."},
 {id:"gf3",t:"What should never be misunderstood out of context?",p:"Redaction guidance."}]}]},
 
-lwg:{name:"Talk to your District",v:"1.1",desc:"NRCS Local Working Group needs assessments",icon:"\uD83C\uDFDB\uFE0F",logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/NRCS_logo.svg/120px-NRCS_logo.svg.png",sections:[
+lwg:{name:"Talk to your District",v:"1.1",desc:"NRCS Local Working Group needs assessments",icon:"\uD83C\uDFDB\uFE0F",logo:"https://openteam-agreements.community/assets/logo.png",sections:[
 {id:"lp",title:"Pre-Questions",sub:"Before recording",qs:[
 {id:"lp1",t:"Who are you, and what is your connection to this conservation district?",p:"Role, organization, how long involved, what brought them here."},
 {id:"lp2",t:"Consent to record? Your voice will feed the Conservation Needs Assessment for this district.",p:"Explain how input shapes priorities and program delivery."}]},
@@ -204,7 +200,7 @@ lwg:{name:"Talk to your District",v:"1.1",desc:"NRCS Local Working Group needs a
 {id:"lf3",t:"Are there resource concerns that cross district or county lines? Who would need to be at the table to address them?",p:"Regional coordination. Note the multi-stakeholder dependencies."},
 {id:"lf4",t:"What new initiative would you champion if you had the resources?",p:"Their vision. Innovative practices, pilots, partnerships."}]}]},
 
-farmhack:{name:"Talk to the Farm",v:"1.1",desc:"Farmer-to-farmer knowledge, open source tools",icon:"\uD83D\uDD27",logo:"https://farmhack.org/sites/default/files/farmhack_logo.png",sections:[
+farmhack:{name:"Talk to the Farm",v:"1.1",desc:"Farmer-to-farmer knowledge, open source tools",icon:"\uD83D\uDD27",logo:"https://farmhack.org/sites/all/themes/flavor/logo.png",sections:[
 {id:"fp",title:"Pre-Questions",sub:"Before recording",qs:[
 {id:"fp1",t:"Who are you?",p:"Name, farm, what you grow or build."},
 {id:"fp2",t:"Consent to record?",p:"Output: tool card, practitioner profile for the network."},
@@ -342,10 +338,15 @@ h("div",null,h("div",{className:"sn"},v.name),h("div",{className:"mt sm"},"v"+v.
 h("div",{className:"mt sm",style:{marginTop:"4px",marginLeft:"34px"}},v.sections.length+" sections, "+v.sections.reduce(function(a,s){return a+s.qs.length},0)+" questions")))});
 return h("div",null,
 h("div",{className:"hdr"},
-h("div",{style:{display:"flex",alignItems:"center",gap:"12px",marginBottom:"6px"}},
-h("img",{src:"https://agricultural-knowledge-concordance.github.io/Ag-Knowledge-Concordance/assets/logo.png",style:{height:"32px",borderRadius:"4px"},alt:"AKC",onError:function(ev){ev.target.style.display="none"}}),
-h("img",{src:"https://avatars.githubusercontent.com/u/43793652?s=200&v=4",style:{height:"28px",borderRadius:"4px"},alt:"OpenTEAM",onError:function(ev){ev.target.style.display="none"}})),
-h("h1",null,"\uD83C\uDF3F Talk to the..."),h("p",null,"Ag Knowledge Concordance \u00B7 OpenTEAM \u00B7 Interviewer Guide")),
+h("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:"8px"}},
+h("div",{style:{display:"flex",alignItems:"center",gap:"10px"}},
+h("img",{src:"https://openteam-agreements.community/assets/logo.png",style:{height:"30px",borderRadius:"3px",background:"#fff",padding:"2px"},alt:"OpenTEAM",onError:function(ev){ev.target.style.display="none"}}),
+h("img",{src:"https://agricultural-knowledge-concordance.github.io/Ag-Knowledge-Concordance/assets/logo.png",style:{height:"30px",borderRadius:"3px"},alt:"AKC",onError:function(ev){ev.target.style.display="none"}})),
+h("div",{style:{fontSize:"10px",opacity:.6,textAlign:"right"}},"v1.1")),
+h("div",{style:{fontSize:"13px",opacity:.7,letterSpacing:".04em"}},
+"OpenTEAM \u00B7 ",h("span",{style:{fontWeight:"400"}},"Interviewer Guide")),
+h("h1",null,"Talk to the..."),
+h("p",null,"Ag Knowledge Concordance \u00B7 Participatory Ecosystem Mapping")),
 h("div",{className:"mn"},
 h("div",{className:"cd"},
 h("div",{className:"tg"},"Select Question Set"),
