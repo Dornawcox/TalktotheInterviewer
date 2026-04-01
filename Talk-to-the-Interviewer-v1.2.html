@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talk to the... Interviewer Guide</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,'Times New Roman',serif;background:#FDFAF5;color:#1A1A1A}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+button{cursor:pointer;font-family:inherit}
+textarea:focus,input:focus,select:focus{border-color:#52B788!important;box-shadow:0 0 0 2px rgba(82,183,136,.15)}
+.hdr{background:linear-gradient(135deg,#1B4332,#2D6A4F);padding:18px 24px 14px;color:#fff}
+.hdr h1{font-size:22px;font-weight:700;font-style:italic;margin:0}
+.hdr p{font-size:13px;opacity:.8;margin:2px 0 0}
+.mn{max-width:740px;margin:0 auto;padding:20px 16px 40px}
+.cd{background:#fff;border-radius:12px;box-shadow:0 1px 6px rgba(0,0,0,.06);padding:24px 28px;margin-bottom:18px;border:1px solid #E8E0D4}
+.tg{font-size:11px;font-weight:700;letter-spacing:.08em;color:#52B788;text-transform:uppercase;margin-bottom:6px}
+.mt{font-size:14px;color:#6B7C73}.sm{font-size:12px}
+.qt{font-size:19px;font-weight:600;color:#1B4332;line-height:1.45;margin-bottom:12px}
+.pb{font-size:14px;color:#6B7C73;font-style:italic;line-height:1.5;margin-bottom:16px;padding:10px 14px;background:#F8F5EF;border-radius:8px;border-left:3px solid #E8A838}
+textarea{width:100%;min-height:88px;border:1px solid #D4DDD8;border-radius:8px;padding:12px;font-family:inherit;font-size:15px;resize:vertical;outline:none;line-height:1.5}
+input,select{width:100%;padding:10px 12px;border:1px solid #D4DDD8;border-radius:8px;font-family:inherit;font-size:14px;outline:none;background:#fff}
+.fld{margin-bottom:14px}.fld label{font-size:13px;font-weight:600;color:#1B4332;display:block;margin-bottom:4px}
+.br{display:flex;gap:10px;margin-top:16px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.bt{padding:10px 20px;border-radius:8px;border:none;font-size:14px;font-weight:600;transition:all .15s}
+.bts{padding:6px 14px;font-size:12px}
+.bp{background:#2D6A4F;color:#fff}.bs{background:#E8F0E8;color:#2D6A4F}
+.bd{background:#C1121F;color:#fff}.bg{background:transparent;color:#6B7C73;border:1px solid #D4DDD8}
+.bt:disabled{opacity:.4;cursor:default}
+.snv{display:flex;gap:6px;padding:10px 16px;background:#F0F7F4;border-bottom:1px solid #D4E5DC;flex-wrap:wrap;overflow-x:auto}
+.nb{padding:5px 12px;border-radius:20px;border:1px solid #B7CFC2;background:#fff;color:#2D6A4F;font-size:11px;font-weight:600;font-family:inherit;white-space:nowrap}
+.nba{border:2px solid #2D6A4F;background:#2D6A4F;color:#fff}
+.rc{display:flex;align-items:center;gap:12px;padding:10px 16px;background:#F0F7F4;border-radius:10px;margin-bottom:14px;border:1px solid #D4E5DC}
+.rcon{background:#FFF0F0;border-color:#E8A0A0}
+.rd{width:12px;height:12px;border-radius:50%;background:#999;flex-shrink:0}
+.rdon{background:#C1121F;animation:pulse 1.5s infinite}
+.rl{font-size:13px;flex:1}.rlon{font-weight:700;color:#C1121F}
+.pgb{height:4px;background:#ffffff33;border-radius:2px;margin-top:10px}
+.pf{height:100%;background:linear-gradient(90deg,#52B788,#95D5B2);border-radius:2px;transition:width .3s}
+.ds{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+.dt{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:1px solid #D4DDD8;background:#fff;color:#999;font-family:inherit}
+.dta{border:2px solid #1B4332;background:#E8F0E8;color:#1B4332}
+.dtf{background:#52B788;color:#fff;border-color:#52B788}
+.so{padding:14px 18px;border-radius:10px;margin-bottom:8px;cursor:pointer;border:1px solid #D4DDD8;background:#fff}
+.soa{border:2px solid #2D6A4F;background:#F0F7F4}.so:hover{border-color:#52B788}
+.sn{font-weight:700;font-size:16px;color:#1B4332}
+.slogo{width:84px;height:84px;border-radius:6px;object-fit:contain;background:#fff;flex-shrink:0}
+.qr{display:flex;gap:2px;margin:4px 0;align-items:center}
+.qrs{font-size:22px;cursor:pointer;opacity:.3;transition:opacity .15s;user-select:none}
+.qrs.on{opacity:1}
+.qrl{font-size:11px;opacity:1;cursor:default;margin-left:8px;color:#6B7C73}
+.qsec{margin-top:12px;padding-top:10px;border-top:1px solid #E8E0D4}
+.qsl{font-size:11px;font-weight:700;color:#6B7C73;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+.mnb{margin-top:10px;padding:8px 12px;background:#FDF6EC;border:1px dashed #E8A838;border-radius:6px}
+.mnb label{font-size:11px;font-weight:700;color:#E8A838;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px;display:block}
+.mnb textarea{min-height:44px;font-size:13px;background:transparent;border:none;padding:0}
+.mnb textarea:focus{box-shadow:none!important}
+.tc{padding:16px;border:1px solid #D4E5DC;border-radius:10px;margin-bottom:12px;background:#FAFDF9}
+.tc h3{font-size:15px;font-weight:700;color:#1B4332;margin-bottom:4px}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:700;margin-right:4px}
+.bg1{background:#E8F0E8;color:#2D6A4F}.bg2{background:#E8EEF8;color:#2D5F8F}.bg3{background:#FDF6EC;color:#B8860B}
+.wf{padding:12px 16px;background:#F0F7F4;border-radius:8px;border:1px solid #D4E5DC;margin-bottom:16px}
+@media(max-width:600px){.cd{padding:18px 16px}.qt{font-size:17px}.mn{padding:16px 12px 32px}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script>
+(function(){
+"use strict";
+var h=React.createElement,F=React.Fragment;
+var US=React.useState,UR=React.useRef,UE=React.useEffect;
+
+var QS={
+core:{name:"Core Questions",v:"1.0",desc:"Universal question set for all deployments",icon:"\uD83D\uDDFA\uFE0F",logo:"https://openteam-agreements.community/assets/logo.png",sections:[
+{id:"pre",title:"Pre-Questions",sub:"Ask before recording",qs:[
+{id:"pre1",t:"Who are you?",p:"Let them introduce themselves naturally."},
+{id:"pre2",t:"Do I have your consent to record this interview?",p:"Explain: audio transcribed, they control visibility, can stop anytime."},
+{id:"pre3",t:"How would you describe your work and your project?",p:"Use their language in the profile."},
+{id:"pre4",t:"Who do you consider your community?",p:"Note organizations, networks, geographic communities."},
+{id:"pre5",t:"What geographic region do you work in?",p:"Granularity: exact, watershed, county, region, general area."}]},
+{id:"quick",title:"Quick Pass",sub:"5-10 min profile card",qs:[
+{id:"q1",t:"In 1-2 sentences: what knowledge, data, or practice do you steward, and for whom?",p:"Lead line of their profile card."},
+{id:"q2",t:"What do you love about your community right now?",p:"Listen for values. Tag with keywords."},
+{id:"q3",t:"One decision you made recently about data, practices, sharing, access, or governance.",p:"Concrete recent action."},
+{id:"q4",t:"Single most limiting constraint: capacity, funding, policy, tech, risk, trust?",p:"One constraint. Which would you remove first?"},
+{id:"q5",t:"One reuse opportunity you wish more people would take advantage of.",p:"Surfaces hidden resources."},
+{id:"q6",t:"Easiest next collaboration: who or what would make your work easier next season?",p:"Actionable connection points."},
+{id:"q7",t:"Three most important books, events, or papers that inspired your journey?",p:"Intellectual lineage and shared references."}]},
+{id:"d1",title:"1 - Community and Story of Change",sub:"Deep interview",qs:[
+{id:"d11",t:"Tell a short story about what your community/landscape/work is like now and how it has changed.",p:"Richest question. Give it time."},
+{id:"d12",t:"Who are your primary communities or beneficiaries?",p:"Named orgs and unnamed categories."},
+{id:"d13",t:"Biggest misunderstandings outsiders have about your work?",p:"Framing tensions."},
+{id:"d14",t:"A short story that illustrates this?",p:"Stories beat summaries."}]},
+{id:"d2",title:"2 - Workflows and Decisions",sub:"",qs:[
+{id:"d21",t:"How is knowledge/data collected or contributed?",p:"Map: field to storage to sharing."},
+{id:"d22",t:"What makes something good enough to share or act on?",p:"Quality thresholds."},
+{id:"d23",t:"Where does it live? (repos, portals, archives, drives)",p:"Note platform names."},
+{id:"d24",t:"What breaks, drifts, or requires ongoing care? Key stewards?",p:"Maintenance reality."}]},
+{id:"d3",title:"3 - Interoperability",sub:"",qs:[
+{id:"d31",t:"Standards, vocabularies, or formats you use or avoid, and why?",p:"Note standard names."},
+{id:"d32",t:"Hardest translation problems?",p:"Metadata, semantics, units, provenance."},
+{id:"d33",t:"What would make your work more reusable without increasing risk?",p:"Openness vs safety."}]},
+{id:"d4",title:"4 - Trust, Power and Risk",sub:"",qs:[
+{id:"d41",t:"Trust map: which institutions do you trust? Where is trust fragile?",p:"Name names if willing."},
+{id:"d42",t:"Risk posture: what do you share openly vs restrict? Why?",p:"Logic behind decisions."},
+{id:"d43",t:"What harms are you actively preventing?",p:"Misuse, extraction, surveillance."}]},
+{id:"d5",title:"5 - Governance and Reciprocity",sub:"",qs:[
+{id:"d51",t:"Who decides access, terms, and updates?",p:"Formal vs actual authority."},
+{id:"d52",t:"What reciprocity do you expect from users?",p:"Attribution, share-backs, funding."},
+{id:"d53",t:"What enforcement feels real, not symbolic?",p:"Licenses, norms, technical controls."}]},
+{id:"d6",title:"6 - Offers, Asks and Futures",sub:"",qs:[
+{id:"d61",t:"What can you offer the network?",p:"Tools, templates, training, hosting."},
+{id:"d62",t:"What would help you move faster or more safely in 6 months?",p:"Concrete asks."},
+{id:"d63",t:"2-3 years from now, what shows we made progress together?",p:"Forward-looking."}]}]},
+
+concordance:{name:"Ag Knowledge Concordance",v:"1.1",desc:"Mapping agricultural data, archives, and knowledge networks",icon:"\uD83D\uDD17",logo:"https://agricultural-knowledge-concordance.github.io/Ag-Knowledge-Concordance/assets/logo.png",sections:[
+{id:"cp",title:"Pre-Questions",sub:"Before recording — maps to onboarding form",qs:[
+{id:"cp1",t:"Who are you, and what organization or community are you affiliated with?",p:"Name, role, organization. Note if independent practitioner."},
+{id:"cp2",t:"Consent to record? This conversation feeds the Concordance project map and may be used to build your project profile.",p:"Audio stays local. They review transcript before anything is shared."},
+{id:"cp3",t:"Are you primarily a data steward, a data user, part of a data network, or affiliated with an archive?",p:"From the form: archive (long-term preservation), data network (providers/aggregators), data steward, data user, data practitioner. People may be several."},
+{id:"cp4",t:"Have you participated in a Concordance event before? What brought you here?",p:"Online, in-person, or first time. Sets context for depth of questions."},
+{id:"cp5",t:"What is the primary focus of your work, and what geographic region or communities does it serve?",p:"Agriculture, climate, food systems, indigenous knowledge, other. Note scale."}]},
+{id:"cq",title:"Concordance Quick Pass",sub:"5-10 min",qs:[
+{id:"cq1",t:"Who do you consider your community in this work, and what do you love about being part of it?",p:"Relational ties first. Other data stewards, farmers, researchers, archivists, indigenous partners, agencies."},
+{id:"cq2",t:"If you produce or curate datasets, tell me what they are and how they are currently stored and updated.",p:"Direct from the form. Note platforms, formats, update frequency, who has access."},
+{id:"cq3",t:"Tell me about a time your data or knowledge connected with someone else's work in a way that mattered.",p:"Story prompt. Surfaces value of interoperability and unexpected connections."},
+{id:"cq4",t:"What is the most urgent or endangered archive or dataset you are aware of that needs attention right now?",p:"Direct from the form. Data at risk of loss, defunding, format obsolescence, or institutional collapse."},
+{id:"cq5",t:"What gives you hope about the future of shared agricultural knowledge?",p:"End on hope. What is emerging, getting better, worth building toward?"}]},
+{id:"cd",title:"Data Sovereignty and Networks",sub:"Deep interview",qs:[
+{id:"cd1",t:"What is the key research network or indigenous community you are engaging with around data sovereignty and knowledge preservation?",p:"Direct from the form. Listen for governance protocols, CARE principles, tribal data sovereignty, community data trusts."},
+{id:"cd2",t:"Tell me a story about what happens when agricultural data crosses a boundary it was not designed to cross — between institutions, communities, nations, or languages.",p:"Narrative of friction or unexpected connection. Reveals where concordance is most needed."},
+{id:"cd3",t:"Who depends on the data or knowledge you maintain, and whose work do you depend on to do yours?",p:"Map mutual dependencies. Upstream sources, downstream users, peer archives, complementary datasets."},
+{id:"cd4",t:"When you share data, what do you need to know about who is receiving it and how they will use it? When does sharing feel extractive?",p:"Trust conditions. Governance requirements. Note the red lines."},
+{id:"cd5",t:"What governance or reciprocity practices would make you more willing to connect your work to a shared network like the Concordance?",p:"Attribution, access control, review rights, benefit sharing. What earns trust?"}]},
+{id:"cf",title:"Offers, Asks and Futures",sub:"",qs:[
+{id:"cf1",t:"What is one topic you would like to see covered or discussed in future Concordance convenings?",p:"Direct from the form. Note gaps in current conversation."},
+{id:"cf2",t:"What other projects are you working on in this space that the Concordance should know about?",p:"From the form. Note URLs, partner organizations, related initiatives. Larger projects should fill out their own form."},
+{id:"cf3",t:"What can you offer the Concordance network, and what would help you connect your work to others in the next 6 months?",p:"Offer and ask. Data, metadata, vocabularies, crosswalks, training, introductions. Concrete needs."},
+{id:"cf4",t:"Is there anything else we should capture — something this conversation has not yet asked about?",p:"Direct from the form. Open-ended catch-all. Often produces the most important insight."}]}]},
+
+grazing:{name:"Talk to the Land",v:"1.1",desc:"Place-based stewards and conservation districts",icon:"\uD83C\uDF3E",logo:"https://openteam-agreements.community/assets/logo.png",sections:[
+{id:"gp",title:"Pre-Questions",sub:"Before recording",qs:[
+{id:"gp1",t:"Who are you?",p:"Name, operation, landscape."},
+{id:"gp2",t:"Consent to record?",p:"Outputs: land profile, community map."},
+{id:"gp3",t:"Your landscape and work?",p:"How they name their place."},
+{id:"gp4",t:"Your community?",p:"Ranchers, agencies, tribes, neighbors."},
+{id:"gp5",t:"Geographic region?",p:"Ranch, watershed, county, region."}]},
+{id:"gq",title:"Grazing Quick Pass",sub:"5-7 min",qs:[
+{id:"gq1",t:"Your grazing landscape in 1-2 sentences. What should we call this place on the map?",p:"Their name becomes the map label."},
+{id:"gq2",t:"Who do you consider your community out here, and what do you love about being part of it?",p:"Listen for relational ties: neighbors, agencies, tribal partners, buyers. Note who they depend on and who depends on them."},
+{id:"gq3",t:"Tell me about a time you and a neighbor or partner depended on each other to get through a hard season.",p:"Story prompt. Surfaces mutual aid, shared infrastructure, reciprocity. Let them talk."},
+{id:"gq4",t:"One key signal you watch that tells you this land is heading in the right direction.",p:"Their indicator of hope. Soil, plants, water, wildlife, community engagement."},
+{id:"gq5",t:"What is the tightest constraint on your stewardship right now?",p:"One constraint. Capacity, money, permits, climate, trust."},
+{id:"gq6",t:"What gives you hope about the future of this landscape and the people caring for it?",p:"End on hope. Connect to their vision of a good future."}]},
+{id:"gc",title:"Land, Community and Governance",sub:"Deep interview",qs:[
+{id:"gc1",t:"Tell me the story of this place: what was it like when you first came to it, and what has changed since?",p:"Give this time. The narrative arc reveals values, loss, and aspiration."},
+{id:"gc2",t:"Who else does this land depend on, and who depends on what happens here?",p:"Map the web: downstream water users, wildlife, neighboring operations, tribal ties, fire crews, agencies, markets."},
+{id:"gc3",t:"Tell me about a decision that could not have been made alone — one that required coordination across boundaries or interests.",p:"Story of mutual dependency. Allotments, water, fire, predators, easements."},
+{id:"gc4",t:"Where does authority over this landscape sit, and where does the real knowledge sit? Are those the same people?",p:"Often different. Note the gap between formal authority and situated expertise."}]},
+{id:"gpr",title:"Practices and Decision Triggers",sub:"",qs:[
+{id:"gpr1",t:"Walk me through a grazing decision you made this year — what did you see, who did you talk to, and what did you do?",p:"Narrative of practice in action. Observation, consultation, decision, outcome."},
+{id:"gpr2",t:"When conditions change fast — drought, fire, early snow — who do you call first, and what do you need from them?",p:"Crisis reveals true dependencies. Note the mutual aid network."},
+{id:"gpr3",t:"What tradeoff keeps you up at night — where two things you care about are in tension?",p:"Production vs habitat, short vs long term, individual vs collective."},
+{id:"gpr4",t:"What do you know about this land that is not written down anywhere?",p:"Tacit knowledge. The kind that would be lost if they left."},
+{id:"gpr5",t:"What counts as credible evidence about this landscape, and to whom? Where do your observations and the agency's data disagree?",p:"Epistemic tension. Local knowledge vs institutional metrics."}]},
+{id:"gt",title:"Trust, Sharing and Data Trust",sub:"",qs:[
+{id:"gt1",t:"Where is trust strong vs fragile?",p:"Institutions, neighbors, agencies."},
+{id:"gt2",t:"What data sharing feels safe? Extractive?",p:"Governance requirements."},
+{id:"gt3",t:"If we built a data trust, what must it protect?",p:"Red lines, sacred knowledge."},
+{id:"gt4",t:"Who should be beneficiaries? Stewards?",p:"Note the distinction."},
+{id:"gt5",t:"Acceptable access tiers?",p:"Public, members, research, steward-only."},
+{id:"gt6",t:"What makes you opt in? Opt out?",p:"Conditions for participation."},
+{id:"gt7",t:"What enforcement would feel real?",p:"Norms, legal, technical, reputation."}]},
+{id:"gf",title:"Offers, Asks and Futures",sub:"",qs:[
+{id:"gf1",t:"What can you offer?",p:"Land access, data, mentorship, knowledge."},
+{id:"gf2",t:"What would help you?",p:"Next 6 months."},
+{id:"gf3",t:"What should never be misunderstood out of context?",p:"Redaction guidance."}]}]},
+
+lwg:{name:"Talk to your District",v:"1.1",desc:"NRCS Local Working Group needs assessments",icon:"\uD83C\uDFDB\uFE0F",logo:"https://marionswcd.org/wp-content/uploads/NACD-logo.png",sections:[
+{id:"lp",title:"Pre-Questions",sub:"Before recording",qs:[
+{id:"lp1",t:"Who are you, and what is your connection to this conservation district?",p:"Role, organization, how long involved, what brought them here."},
+{id:"lp2",t:"Consent to record? Your voice will feed the Conservation Needs Assessment for this district.",p:"Explain how input shapes priorities and program delivery."}]},
+{id:"lm",title:"Resource Concerns and Priorities",sub:"Feeds Conservation Needs Assessment",qs:[
+{id:"lm1",t:"Who do you consider your community in conservation work here, and what do you love about this landscape?",p:"Start relational. Note the people and the place they care about together."},
+{id:"lm2",t:"Tell me the story of a resource concern you have watched develop — what did it look like five years ago, and what does it look like now?",p:"Narrative of change over time. More revealing than a list of concerns."},
+{id:"lm3",t:"Where on this landscape do you see the greatest need and the greatest opportunity close together?",p:"Invite pointing on a map. Geographic specificity for the report."},
+{id:"lm4",t:"Tell me about a practice or innovation happening here that the reporting systems do not capture.",p:"Story of invisible success. Innovation below the institutional threshold."},
+{id:"lm5",t:"When a producer here needs help, who do they actually call first — and how does that connect to the formal system?",p:"Maps the real network vs the org chart. Note dependencies, gaps, trust relationships."},
+{id:"lm6",t:"What local knowledge about this landscape should inform conservation planning but currently does not?",p:"Situated knowledge. The kind that does not fit a database field but changes outcomes."},
+{id:"lm7",t:"Who are the key stewards here — the people whose knowledge about this landscape would be hardest to replace?",p:"Names for the structural map. People the district should be in deep conversation with."},
+{id:"lm8",t:"If you could change one thing about how conservation technical assistance is delivered here, what would it be?",p:"Policy recommendation for the State Technical Committee."},
+{id:"lm9",t:"What gives you hope about conservation in this district? What does success look like in 3 years?",p:"End on hope and vision. Feeds the 3-year plan."}]},
+{id:"lf",title:"Funding and Recommendations",sub:"",qs:[
+{id:"lf1",t:"Tell me about a time a conservation program really worked here — what made it succeed, and who made it happen?",p:"Story of success. Reveals what to invest in. Note the dependencies."},
+{id:"lf2",t:"What are the funding gaps — where is there need that no current program reaches?",p:"Unserved needs for the funding table."},
+{id:"lf3",t:"Are there resource concerns that cross district or county lines? Who would need to be at the table to address them?",p:"Regional coordination. Note the multi-stakeholder dependencies."},
+{id:"lf4",t:"What new initiative would you champion if you had the resources?",p:"Their vision. Innovative practices, pilots, partnerships."}]}]},
+
+farmhack:{name:"Talk to the Farm",v:"1.1",desc:"Farmer-to-farmer knowledge, open source tools",icon:"\uD83D\uDD27",logo:"https://farmhack.org/sites/default/files/styles/large/public/2025-08/farm-hack-logo.png.webp?itok=DpXsmA-n",sections:[
+{id:"fp",title:"Pre-Questions",sub:"Before recording",qs:[
+{id:"fp1",t:"Who are you?",p:"Name, farm, what you grow or build."},
+{id:"fp2",t:"Consent to record?",p:"Output: tool card, practitioner profile for the network."},
+{id:"fp3",t:"Your farm or project?",p:"Scale, location, what it produces."}]},
+{id:"fq",title:"Quick Pass",sub:"5-10 min",qs:[
+{id:"fq1",t:"Who do you consider your community, and what do you love about farming alongside them?",p:"Listen for who they learn from, share with, depend on. The relational fabric."},
+{id:"fq2",t:"Tell me the story of a tool, hack, or technique you developed or adapted — what problem did it solve, and who helped?",p:"Story of innovation. Note the collaborators and dependencies."},
+{id:"fq3",t:"Has anyone else picked it up or adapted it? Tell me what happened.",p:"Replication narrative. The strongest evidence a tool card can carry."},
+{id:"fq4",t:"What documentation exists — and what would make it easier for the next person to build or use this?",p:"Plans, photos, instructions, parts, costs. Note the gap."},
+{id:"fq5",t:"Tell me about the most useful thing you ever learned from another farmer, not from an institution.",p:"Peer-to-peer knowledge transfer story. Heart of Farm Hack."},
+{id:"fq6",t:"What commercial tool do you wish had an open-source alternative, and why?",p:"Demand signal. Note the dependency they want to break."},
+{id:"fq7",t:"What gives you hope about farmers helping each other build better tools and systems?",p:"End on hope. What is emerging, working, worth investing in."}]},
+{id:"fd",title:"Deeper — Knowledge and Sharing",sub:"",qs:[
+{id:"fd1",t:"What do you know about your farm that is hard to write down — the kind of thing you would have to show someone?",p:"Tacit knowledge. The kind that needs demonstration, not documentation."},
+{id:"fd2",t:"Tell me about a time you shared data or knowledge from your farm and it led to something unexpected.",p:"Story of knowledge flow. Positive or cautionary. Surfaces the real value and risk of sharing."},
+{id:"fd3",t:"Who depends on what you know, and whose knowledge do you depend on to run your operation?",p:"Mutual dependency map. Suppliers, neighbors, extension, veterinarians, mechanics, seed savers."},
+{id:"fd4",t:"What is broken about how agricultural knowledge moves from research to the people who need it?",p:"The extension gap from their perspective. Note what they trust vs what they dismiss."},
+{id:"fd5",t:"What can you offer the Farm Hack network — and what would help you most in the next growing season?",p:"Offer and ask in one question. Skills, tools, hosting, testing, mentorship, land."},
+{id:"fd6",t:"If we could build one thing together as a community of farmer-innovators, what should it be?",p:"Collective vision. What is worth pooling effort for."}]}]},
+
+gosh:{name:"GOSH / Open Science Hardware",v:"1.1",desc:"Open source scientific instruments",icon:"\uD83D\uDD2C",logo:"https://openhardware.science/wp-content/uploads/2021/08/gosh-logo.png",sections:[
+{id:"ghp",title:"Pre-Questions",sub:"Before recording",qs:[
+{id:"ghp1",t:"Who are you?",p:"Name, affiliation, field."},
+{id:"ghp2",t:"Consent to record?",p:"Output: hardware registry entry and community map."},
+{id:"ghp3",t:"Your project or instrument?",p:"What it measures, who uses it, current status."}]},
+{id:"ghm",title:"Hardware, Community and Adoption",sub:"",qs:[
+{id:"ghm1",t:"Who do you consider your community in open hardware, and what do you love about being part of it?",p:"Listen for the relational web: collaborators, users, maintainers, mentors. Who depends on whom."},
+{id:"ghm2",t:"Tell me the story of the instrument or hardware you have built or adapted — what problem were you solving, and who else was involved?",p:"Origin narrative. Note the collaborations and dependencies that made it possible."},
+{id:"ghm3",t:"Walk me through what it takes for someone else to reproduce your design — where does the chain break?",p:"Documentation, calibration, parts sourcing, tacit knowledge. The reuse pathway and its gaps."},
+{id:"ghm4",t:"Tell me about a time your hardware was used by someone you did not expect, or in a way you did not anticipate.",p:"Story of adoption. Surfaces unexpected interdependencies and value."},
+{id:"ghm5",t:"What institutional barrier has been hardest to overcome — the thing that keeps open hardware from being accepted where it should be?",p:"Story of friction. Certification, regulation, procurement, credibility."},
+{id:"ghm6",t:"Who depends on the data your instruments generate, and whose instruments or data do you depend on?",p:"Mutual dependency map across the hardware-data boundary. Often invisible."},
+{id:"ghm7",t:"What would make the biggest difference for open hardware in the next year — what is the bottleneck everyone feels?",p:"Shared constraint. Funding, documentation standards, certification pathways, community infrastructure."},
+{id:"ghm8",t:"What can you offer the network, and what would help you move faster?",p:"Offer and ask. Designs, calibration data, mentorship, manufacturing contacts, funding, partnerships."},
+{id:"ghm9",t:"What gives you hope about the future of open scientific instruments and the communities building them?",p:"End on hope. What is emerging, gaining traction, worth believing in."}]}]},
+"digital-shuhari":{name:"Digital Shuhari — Operational DNA",v:"1.0",desc:"Maps workflows, data flows, risk, and future state for digital transformation",icon:"⚙️",logo:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiPjx0ZXh0IHg9IjQiIHk9IjMyIiBmb250LWZhbWlseT0iQXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiMyRDZBNEYiIGZvbnQtd2VpZ2h0PSI3MDAiPkRpZ2l0YWw8L3RleHQ+PHRleHQgeD0iNCIgeT0iNjIiIGZvbnQtZmFtaWx5PSJBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZmlsbD0iIzFCNDMzMiIgZm9udC13ZWlnaHQ9IjgwMCI+U2h1aGFyaTwvdGV4dD48L3N2Zz4=",sections:[
+{id:"ds-pre",title:"Pre-Questions",sub:"Ask before recording — consent & rapport",qs:[
+{id:"ds-pre1",t:"What is your role, and what are the top 3 outcomes you’re accountable for?",p:"Let them frame their own work in their own words. Note the exact language — these phrases anchor the rest of the interview."},
+{id:"ds-pre2",t:"As we consider more automation and AI tools, what is one part of your work that is absolutely sacred — a human touch that should never be handed off to a system?",p:"Surfaces values before process. Answers here calibrate how to present Section 7 recommendations."},
+{id:"ds-pre3",t:"Beyond job duties, how does a new person on your team learn the ‘unwritten rules’ of how this organization actually works?",p:"Rapport-builder. Reveals cultural knowledge that lives only in people. Often surfaces the Single Point of Failure before you reach Section 5."},
+{id:"ds-pre4",t:"Your answers will be confidentially analyzed and presented to leadership as a patterns map — not attributed to you individually unless you choose. How would you prefer to appear? (Named / Role-only / Anonymous)",p:"Record their preference explicitly. Confirm quoting permission: named quote, role-only, paraphrase only, or no quotes."}]},
+{id:"ds-quick",title:"Quick Pass",sub:"5–10 minutes — minimal operational profile",qs:[
+{id:"ds-q1",t:"What are the top 2–3 metrics you track in your role, and how easy is it to pull that data when you need it?",p:"Listen for friction in data access. ‘I have to manually calculate it’ or ‘I have to ask someone’ are the key signals."},
+{id:"ds-q2",t:"If one recurring administrative task could be eliminated from your week, what would it be — and what would you do with the reclaimed time?",p:"The task they name is the automation target. The reclaimed-time answer reveals what they actually value doing. Note both."},
+{id:"ds-q3",t:"For your most critical recurring process — what is the very first trigger, and what does ‘done’ look like?",p:"Pin them to a specific process. If they go vague: ‘Which one causes the most stress when something goes wrong?’"},
+{id:"ds-q4",t:"Describe a task where you regularly copy or re-enter data from one place to another. What data, and between which systems?",p:"The Human API question. Name the specific systems. Often the highest-ROI automation target in the organization."},
+{id:"ds-q5",t:"Which process or piece of institutional knowledge is most dependent on a single person? What happens if they’re unavailable for two weeks?",p:"Listen for role names, not just function names. Probe: ‘Who would you call at 9pm if something went wrong?’"}]},
+{id:"ds-1",title:"Section 1 — Strategic Vision",sub:"Anchor improvements to organizational goals",qs:[
+{id:"ds-1-1",t:"In your own words, what is the organization’s primary goal for this year — and what does ultimate success look like in 12–18 months?",p:"Listen for how they define success. Outputs (we ran X programs) vs. outcomes (participants reported Y change)."},
+{id:"ds-1-2",t:"What are the top 3–5 metrics you track, and how easy or difficult is it to gather the data for each one?",p:"For each metric, probe the data-gathering friction. ‘We have to manually update a Google Sheet’ is the signal. Note the specific tool or file name."},
+{id:"ds-1-3",t:"Think of a recent significant strategic decision. What information was critical to making it, and how was it gathered?",p:"Surfaces how decisions actually get made vs. how they’re supposed to be made. Manual searches through old feedback point to knowledge management gaps."},
+{id:"ds-1-4",t:"What is one capability or process you need to strengthen to better serve your community — something that feels like a real gap right now?",p:"Let them prioritize. If they list several: ‘If you could only fix one, which one is costing you the most right now?’"},
+{id:"ds-1-5",t:"What is your greatest operational strength? And what area would be most strained by a 50% increase in clients or projects?",p:"The strength answer builds the narrative map. The strain answer is the scalability bottleneck. Probe: ‘What specifically would break — a person, a spreadsheet, a process step?’"}]},
+{id:"ds-2",title:"Section 2 — Roles & Daily Work",sub:"Individual responsibilities and collaboration patterns",qs:[
+{id:"ds-2-1",t:"Walk me through a typical workday. What recurring tasks or meetings are on your calendar, and what are the most common sources of interruption?",p:"Listen for time sinks. ‘I spend an hour every morning cross-referencing the calendar’ is a high-value signal."},
+{id:"ds-2-2",t:"How do you determine what to work on each day? A formal task list, email instructions, a personal system, or something else?",p:"Reactive prioritization is itself a scalability risk. Note whether their system would survive a sudden increase in volume."},
+{id:"ds-2-3",t:"Who are the top 3–5 people you collaborate with most frequently, and what tools or methods do you use?",p:"Note specific tool names (Google Chat, shared Sheets, email threads). Builds the collaboration layer of the structural map."},
+{id:"ds-2-4",t:"If one recurring administrative or low-value task could be eliminated, what would it be — and what high-value work would you do with the reclaimed time?",p:"The task named is the automation candidate. Example: ‘Manually creating invoices from what the team sends me.’"}]},
+{id:"ds-3",title:"Section 3 — Core Process Deep Dive",sub:"Map one high-value recurring process end to end",qs:[
+{id:"ds-3-1",t:"For a critical recurring process — onboarding a participant, booking a space, processing a grant — what is the absolute starting point, and what final action means it’s 100% complete?",p:"Pin them to one specific process. If they waver: ‘Which one causes the most downstream problems when something goes wrong?’"},
+{id:"ds-3-2",t:"Describe the key stages of that process. At each handoff, how is work and information transferred — and where do handoffs most often stall?",p:"Listen for handoffs via email or chat rather than a system. Each informal handoff is a potential failure point."},
+{id:"ds-3-3",t:"What is the most common exception or variation to this process, and how much manual effort does it require?",p:"Exceptions reveal complexity that formal process docs hide. Probe: ‘How often does that happen — once a week? Once a month?’"},
+{id:"ds-3-4",t:"How long does this process take from start to finish? Where is the most wait time — where work sits idle waiting for the next action or approval?",p:"Wait time reveals approval bottlenecks or dependency on a specific person’s availability."},
+{id:"ds-3-5",t:"At what point is a human review absolutely essential to catch errors? What specific information is being verified?",p:"This defines where automation should stop. Often reveals QC that exists only in someone’s head."},
+{id:"ds-3-6",t:"How would a leader find the current status of this process at any given moment — which document, system, or person would they consult?",p:"If the answer is ‘they’d ask me’ or ‘check the spreadsheet but it might not be updated,’ that’s a visibility gap."}]},
+{id:"ds-4",title:"Section 4 — Data & Information Flow",sub:"Identify silos, integrity gaps, and manual workarounds",qs:[
+{id:"ds-4-1",t:"Walk me through compiling a major grant report. Where do the required data points actually come from?",p:"Map each system, spreadsheet, or person they contact. Number of sources for a single report is the fragmentation score."},
+{id:"ds-4-2",t:"If a major donor asked for a detailed breakdown of how their specific contribution was used last quarter, what steps would produce that answer?",p:"The transparency test. How long would it take? How many systems? Under an hour, or days?"},
+{id:"ds-4-3",t:"Describe a routine task where you manually copy or re-enter data from one system to another. What specific data, and between which systems?",p:"The Human API question. Each instance is a candidate for automation via Zapier, Make, or a custom integration."},
+{id:"ds-4-4",t:"Where would you find the definitive, most up-to-date version of a key item — budget, contact list, program roster? If you found conflicting versions, how would you determine which is correct?",p:"If the answer is ‘I’d ask [person]’ rather than a system, that’s a source-of-truth gap."},
+{id:"ds-4-5",t:"What is a critical business question that’s currently difficult to answer because the data is scattered across multiple systems?",p:"The strategic data gap. Often becomes the primary use case for a unified dashboard."},
+{id:"ds-4-6",t:"What is the most complex or vital spreadsheet your team relies on? What core problem does it solve that your primary software tools don’t?",p:"The Shadow IT question. The spreadsheet is solving a real problem the official toolstack can’t handle. Ask to see it if possible."}]},
+{id:"ds-5",title:"Section 5 — Scalability & Risk",sub:"Pressure-test operations under stress",qs:[
+{id:"ds-5-1",t:"If the volume of clients or projects doubled next month, what specific process, tool, or person would break first?",p:"Push for specificity. ‘Everything would be hard’ is not the answer. Probe: ‘If you had to point to the first domino, what would it be?’"},
+{id:"ds-5-2",t:"Which process or piece of institutional knowledge is most dependent on a single individual? What would be the impact if that person were unavailable for two weeks?",p:"Make it safer: ‘This isn’t about performance — it’s about resilience. Where would you feel most nervous if someone was out sick for a month?’"},
+{id:"ds-5-3",t:"Think of a recent time a small error was made early in a process. How far did it travel downstream before it was caught, and how much rework did it require?",p:"A specific story is more useful than a general description. Probe: ‘Can you think of a specific example? It doesn’t have to be dramatic.’"},
+{id:"ds-5-4",t:"What is the most complex workaround or ‘unwritten rule’ that would be hardest to teach someone new in your role? Why does this workaround exist?",p:"The workaround exists because the official system doesn’t handle the real situation. Understanding why is more important than the workaround itself."}]},
+{id:"ds-6",title:"Section 6 — Knowledge & Community",sub:"Institutional memory, feedback loops, and compliance",qs:[
+{id:"ds-6-1",t:"When planning a new program or applying for a grant, how do you access lessons learned, budgets, and vendor info from previous initiatives?",p:"If the answer is ‘we ask the person who ran it last time’ or ‘we search old emails,’ that’s a knowledge management gap."},
+{id:"ds-6-2",t:"Describe the journey of feedback from a program participant. How is it collected, stored, reviewed — and how does it actually influence changes?",p:"Map the full loop: collection → storage → reviewer → decision. Most orgs collect feedback but the loop from feedback to change is broken."},
+{id:"ds-6-3",t:"How do we communicate back to participants that their feedback was heard and led to a change?",p:"Many organizations skip this entirely. If they can’t name a mechanism, that’s a community trust gap."},
+{id:"ds-6-4",t:"How do we ensure every project follows the same critical steps every time? Is it a checklist, a template, a system workflow — and how is adherence verified?",p:"‘We trust people to remember’ is the most common and highest-risk answer."}]},
+{id:"ds-7",title:"Section 7 — Future State",sub:"From problem identification to high-impact interventions",qs:[
+{id:"ds-7-0",t:"Based on everything you’ve described — if you could change exactly one thing about how information or work flows in your role, what would it be and why?",p:"The grounding question. Ask this before the technology questions to anchor the conversation in specific pain points already surfaced."},
+{id:"ds-7-1",t:"Think of a frequent manual task and complete this sentence: ‘When [X event] happens, I always have to manually [Y action].’",p:"Listen for the trigger event and the manual action separately — both are needed to design the automation."},
+{id:"ds-7-2",t:"Thinking bigger: describe the single most valuable ‘If This, Then That’ rule you could implement across the organization — connecting multiple systems or teams.",p:"Example: ‘IF a major donation is logged, THEN create a thank-you task for the ED AND notify marketing.’"},
+{id:"ds-7-3",t:"Beyond simple automation, where could an AI assistant have the most transformative impact on your work — helping you think, make decisions, or analyze data?",p:"Distinguish task automation (doing) from intelligent augmentation (thinking). Probe: ‘What decision do you make repeatedly that you wish you had better data for?’"},
+{id:"ds-7-4",t:"If you could design a single dashboard with real-time data from all your key systems, what are the top 5 pieces of information it would need to show?",p:"Write down the 5 items in priority order. First named is usually most important. Each maps to a data source needing integration."},
+{id:"ds-7-5",t:"Which of your core tools has the most untapped potential? Which would give the biggest strategic advantage if you became true power users?",p:"Listen for tools used at 20% of their capability. Often surfaces a lower-cost path than buying new software."},
+{id:"ds-7-6",t:"On a scale of 1 (hesitant) to 5 (excited), how do you feel about integrating more AI and automation into your daily work? What are your biggest questions or concerns?",p:"The concerns named are real implementation risks — write them verbatim. Each needs to be addressed in the change management plan."}]}
+]}
+};
+
+var CF=[
+{id:"display_name",label:"Display name",ph:"Name or pseudonym",ty:"t"},
+{id:"location",label:"Location",ph:"Region, county, or general area",ty:"t"},
+{id:"visibility",label:"Profile visibility",opts:["Internal only","Members only","Public summary OK"],ty:"s"},
+{id:"quotes",label:"Quoting permissions",opts:["No quotes","Quotes with my approval","Quotes without approval"],ty:"s"},
+{id:"audio_store",label:"Store audio/transcript?",opts:["Yes","No"],ty:"s"},
+{id:"sensitive",label:"Sensitive categories?",opts:["No","Yes - cultural protocols","Yes - threatened species","Yes - conflict or tenure","Yes - enforcement risk","Yes - personal safety"],ty:"s"}
+];
+
+var QL=["","Poor - remove or rework","Weak - needs revision","Adequate","Good - keep as is","Excellent - essential"];
+
+function cp(o){var r={};for(var k in o)r[k]=o[k];return r}
+function fm(s){return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}
+
+function App(){
+var _s=US("core"),sel=_s[0],setSel=_s[1];
+var _c=US(0),cSec=_c[0],setCSec=_c[1];
+var _q=US(0),cQ=_q[0],setCQ=_q[1];
+var _n=US({}),notes=_n[0],setNotes=_n[1];
+var _h=US(""),hl=_h[0],setHl=_h[1];
+var _cn=US({}),con=_cn[0],setCon=_cn[1];
+var _r=US(false),isRec=_r[0],setIsRec=_r[1];
+var _t=US(0),rt=_t[0],setRt=_t[1];
+var _f=US(""),fb=_f[0],setFb=_f[1];
+var _fs=US(false),fbs=_fs[0],setFbs=_fs[1];
+var _v=US("setup"),vw=_v[0],setVw=_v[1];
+var _qr=US({}),qRat=_qr[0],setQRat=_qr[1];
+var _mn=US({}),mNotes=_mn[0],setMNotes=_mn[1];
+var tmr=UR(null),mr=UR(null),ch=UR([]);
+
+var qs=QS[sel],secs=qs.sections,sec=secs[cSec],q=sec?sec.qs[cQ]:null;
+var tot=0;for(var i=0;i<secs.length;i++)tot+=secs[i].qs.length;
+var ans=0;var nk=Object.keys(notes);for(var i=0;i<nk.length;i++){if(notes[nk[i]]&&notes[nk[i]].trim())ans++}
+
+UE(function(){
+if(isRec){tmr.current=setInterval(function(){setRt(function(x){return x+1})},1000)}
+else{clearInterval(tmr.current)}
+return function(){clearInterval(tmr.current)}
+},[isRec]);
+
+function startRec(){
+navigator.mediaDevices.getUserMedia({audio:true}).then(function(st){
+mr.current=new MediaRecorder(st);ch.current=[];
+mr.current.ondataavailable=function(ev){ch.current.push(ev.data)};
+mr.current.start();setIsRec(true);setRt(0);
+}).catch(function(){alert("Microphone access denied.")})}
+
+function stopRec(){if(mr.current&&isRec){mr.current.stop();mr.current.stream.getTracks().forEach(function(t){t.stop()});setIsRec(false)}}
+
+function dlAudio(){
+if(!ch.current.length)return;
+var b=new Blob(ch.current,{type:"audio/webm"}),u=URL.createObjectURL(b),a=document.createElement("a");
+a.href=u;a.download=new Date().toISOString().slice(0,10)+"_"+sel+"_"+(con.display_name||"participant").replace(/\s+/g,"-")+"_audio.webm";
+a.click();URL.revokeObjectURL(u)}
+
+function dlTxt(){
+var d=new Date().toISOString().slice(0,10),nm=con.display_name||"participant";
+var x="Talk to the... Interview Transcript\nSet: "+qs.name+" v"+qs.v+"\nDate: "+d+"\nParticipant: "+nm+
+"\nLocation: "+(con.location||"-")+"\nVisibility: "+(con.visibility||"-")+"\nQuoting: "+(con.quotes||"-")+
+"\nAudio: "+(con.audio_store||"-")+"\nSensitive: "+(con.sensitive||"-")+
+"\n\n========================================\n\nHEADLINE: "+(hl||"(not captured)")+"\n\n";
+for(var i=0;i<secs.length;i++){x+="-- "+secs[i].title+" --\n\n";
+for(var j=0;j<secs[i].qs.length;j++){var qid=secs[i].qs[j].id;
+x+="Q: "+secs[i].qs[j].t+"\nA: "+(notes[qid]||"(no notes)")+"\n";
+if(qRat[qid])x+="Quality: "+qRat[qid]+"/5 - "+QL[qRat[qid]]+"\n";
+if(mNotes[qid]&&mNotes[qid].trim())x+="Interviewer note: "+mNotes[qid]+"\n";
+x+="\n"}}
+if(fb)x+="\n-- FEEDBACK --\n"+fb+"\n";
+var rated=0,tR=0,rk=Object.keys(qRat);
+for(var i=0;i<rk.length;i++){if(qRat[rk[i]]>0){rated++;tR+=qRat[rk[i]]}}
+x+="\n========================================\n";
+if(rated>0)x+="QUESTION QUALITY SUMMARY: "+rated+" rated, avg "+(Math.round(tR/rated*10)/10)+"/5\n";
+x+="Exported: "+new Date().toISOString()+"\n";
+var b=new Blob([x],{type:"text/plain"}),u=URL.createObjectURL(b),a=document.createElement("a");
+a.href=u;a.download=d+"_"+sel+"_"+nm.replace(/\s+/g,"-")+"_transcript.txt";a.click();URL.revokeObjectURL(u)}
+
+function nx(){if(cQ<sec.qs.length-1)setCQ(cQ+1);else if(cSec<secs.length-1){setCSec(cSec+1);setCQ(0)}else setVw("close")}
+function pv(){if(cQ>0)setCQ(cQ-1);else if(cSec>0){setCSec(cSec-1);setCQ(secs[cSec-1].qs.length-1)}}
+function reset(){setVw("setup");setNotes({});setHl("");setCon({});setFb("");setFbs(false);setCSec(0);setCQ(0);ch.current=[];setRt(0);setQRat({});setMNotes({})}
+
+function mkStars(qid){
+var r=qRat[qid]||0;var ss=[];
+for(var i=1;i<=5;i++){(function(v){
+ss.push(h("span",{key:v,className:v<=r?"qrs on":"qrs",onClick:function(){var o=cp(qRat);o[qid]=v===r?0:v;setQRat(o)},title:QL[v]},v<=r?"\u2605":"\u2606"))
+})(i)}
+return h("div",{className:"qr"},ss,r>0?h("span",{className:"qrl"},QL[r]):null)
+}
+
+/* ======== VIEWS ======== */
+
+if(vw==="setup"){
+var opts=[];Object.keys(QS).forEach(function(k){var v=QS[k];
+opts.push(h("div",{key:k,className:sel===k?"so soa":"so",onClick:function(){setSel(k)}},
+h("div",{style:{display:"flex",alignItems:"center",gap:"10px"}},
+v.logo?h("img",{src:v.logo,className:"slogo",alt:"",onError:function(ev){ev.target.style.display="none"}}):null,
+v.logo?null:h("span",{style:{fontSize:"24px"}},v.icon),
+h("div",null,h("div",{className:"sn"},v.name),h("div",{className:"mt sm"},"v"+v.v+" - "+v.desc))),
+h("div",{className:"mt sm",style:{marginTop:"4px",marginLeft:"34px"}},v.sections.length+" sections, "+v.sections.reduce(function(a,s){return a+s.qs.length},0)+" questions")))});
+return h("div",null,
+h("div",{className:"hdr"},
+h("div",{style:{display:"flex",alignItems:"flex-start",justifyContent:"space-between"}},
+h("div",null,
+h("h1",null,"\uD83C\uDF3F Talk to the..."),
+h("p",null,"Ag Knowledge Concordance \u00B7 Participatory Ecosystem Mapping")),
+h("img",{src:"https://agricultural-knowledge-concordance.github.io/Ag-Knowledge-Concordance/assets/logo.png",style:{height:"90px",borderRadius:"6px",marginLeft:"12px",flexShrink:"0"},alt:"Ag Knowledge Concordance",onError:function(ev){ev.target.style.display="none"}}))),
+h("div",{className:"mn"},
+h("div",{className:"cd"},
+h("div",{className:"tg"},"Select Question Set"),
+h("p",{className:"mt",style:{marginBottom:"20px"}},"Choose the question set for your interview context."),
+opts,
+h("div",{className:"br"},
+h("button",{className:"bt bs",onClick:function(){setVw("tools")}},"\uD83C\uDFA4 Transcription Tools"),
+h("button",{className:"bt bp",onClick:function(){setVw("consent")}},"Begin Interview \u2192")))))
+}
+
+if(vw==="tools"){
+return h("div",null,
+h("div",{className:"hdr"},h("h1",null,"\uD83C\uDF3F Talk to the..."),h("p",null,"Local Transcription Tools")),
+h("div",{className:"mn"},
+h("div",{className:"cd"},
+h("div",{className:"tg"},"Recommended Workflow"),
+h("p",{className:"mt",style:{marginBottom:"12px"}},"Record with this app, then transcribe locally. Audio never leaves your device."),
+h("div",{className:"wf"},
+h("div",{style:{fontWeight:"700",color:"#2D6A4F",marginBottom:"4px",fontSize:"13px"}},"RECOMMENDED: Record \u2192 Export .webm \u2192 aTrain \u2192 Pair with question notes"),
+h("div",{className:"mt sm"},"aTrain produces timestamped, speaker-labeled transcripts for qualitative analysis software. Pair its output with your notes from this app for a complete interview record."))),
+h("div",{className:"tc"},
+h("h3",null,"\uD83C\uDFC6 aTrain ",h("span",{className:"badge bg1"},"FREE"),h("span",{className:"badge bg2"},"WINDOWS"),h("span",{className:"badge bg3"},"MAC BETA")),
+h("p",{className:"mt"},"Purpose-built for qualitative research. Whisper + pyannote speaker diarization. Exports to MAXQDA, ATLAS.ti, NVivo with timestamps."),
+h("p",{className:"sm",style:{color:"#2D6A4F",fontWeight:"600",marginTop:"4px"}},"Best for: Researchers needing speaker labels and QDA integration"),
+h("p",{className:"mt sm",style:{marginTop:"4px"}},"Install: Microsoft Store or github.com/JuergenFleiss/aTrain"),
+h("p",{className:"mt sm"},"60-min interview: ~20-30 min CPU, ~5-10 min with GPU")),
+h("div",{className:"tc"},
+h("h3",null,"\uD83C\uDF4E MacWhisper Pro ",h("span",{className:"badge bg3"},"\u20AC64"),h("span",{className:"badge bg2"},"MAC ONLY")),
+h("p",{className:"mt"},"Polished Mac app with on-device speaker diarization. Drag-and-drop, synced playback, batch processing. 25% researcher discount."),
+h("p",{className:"mt sm"},"60-min interview: ~8-18 min on M1+, ~5-9 min on M3/M4")),
+h("div",{className:"tc"},
+h("h3",null,"\uD83D\uDD27 Vibe ",h("span",{className:"badge bg1"},"FREE"),h("span",{className:"badge bg1"},"ALL PLATFORMS")),
+h("p",{className:"mt"},"Cross-platform open-source GUI. whisper.cpp with GPU acceleration. Speaker diarization with editable labels. Exports DOCX, PDF, SRT."),
+h("p",{className:"mt sm"},"Install: thewh1teagle.github.io/vibe")),
+h("div",{className:"tc"},
+h("h3",null,"\uD83D\uDCF1 Mobile"),
+h("p",{className:"mt"},"iOS: Whisper Notes ($4.99) or Aiko (free), both on-device. Android: record on phone, transfer to laptop for aTrain/Vibe.")),
+h("div",{className:"tc",style:{background:"#FDF6EC",borderColor:"#E8A838"}},
+h("h3",null,"\uD83D\uDD17 aTrain + This App"),
+h("p",{className:"mt",style:{marginBottom:"6px"}},"Tightest workflow:"),
+h("p",{className:"mt sm"},"1. Record and capture notes during the interview using this app"),
+h("p",{className:"mt sm"},"2. Export both .webm audio and .txt transcript"),
+h("p",{className:"mt sm"},"3. Open .webm in aTrain for speaker-labeled transcription"),
+h("p",{className:"mt sm"},"4. aTrain outputs timestamped Speaker 1 / Speaker 2 transcript"),
+h("p",{className:"mt sm"},"5. Pair aTrain transcript (verbatim) with this app's export (observations, quality ratings, meta-notes)"),
+h("p",{className:"mt sm",style:{marginTop:"8px",fontStyle:"italic"}},"Future: this app will accept aTrain files directly, aligning speaker segments with questions.")),
+h("div",{style:{marginTop:"16px"}},
+h("button",{className:"bt bg",onClick:function(){setVw("setup")}},"\u2190 Back to Setup"))))
+}
+
+if(vw==="consent"){
+var fields=[];CF.forEach(function(f){
+var inp;
+if(f.ty==="s"){
+var os=[h("option",{key:"_",value:""},"Select...")];
+f.opts.forEach(function(o){os.push(h("option",{key:o,value:o},o))});
+inp=h("select",{value:con[f.id]||"",onChange:function(ev){var c=cp(con);c[f.id]=ev.target.value;setCon(c)}},os);
+}else{
+inp=h("input",{placeholder:f.ph,value:con[f.id]||"",onChange:function(ev){var c=cp(con);c[f.id]=ev.target.value;setCon(c)}});}
+fields.push(h("div",{key:f.id,className:"fld"},h("label",null,f.label),inp))});
+return h("div",null,
+h("div",{className:"hdr"},h("h1",null,"\uD83C\uDF3F Talk to the..."),h("p",null,qs.name+" - Consent")),
+h("div",{className:"mn"},h("div",{className:"cd"},
+h("div",{className:"tg"},"Participant Consent"),
+h("p",{className:"mt",style:{marginBottom:"20px"}},"Complete before recording. Participant controls all visibility."),
+fields,
+h("div",{className:"br"},
+h("button",{className:"bt bg",onClick:function(){setVw("setup")}},"\u2190 Back"),
+h("button",{className:"bt bp",onClick:function(){setCSec(0);setCQ(0);setVw("interview")}},"Start Questions \u2192")))))
+}
+
+if(vw==="close"){
+return h("div",null,
+h("div",{className:"hdr"},h("h1",null,"\uD83C\uDF3F Talk to the..."),h("p",null,qs.name+" - Closing")),
+h("div",{className:"mn"},h("div",{className:"cd"},
+h("div",{className:"tg"},"Capture the Headline"),
+h("div",{className:"pb"},'\uD83D\uDCA1 "Here is what I captured as your headline: [summary]. What did I miss?"'),
+h("textarea",{value:hl,onChange:function(ev){setHl(ev.target.value)},placeholder:"One-sentence headline...",rows:3}),
+isRec?h("div",{className:"rc rcon",style:{marginTop:"16px"}},h("div",{className:"rd rdon"}),h("span",{className:"rl rlon"},"REC "+fm(rt)),h("button",{className:"bt bd bts",onClick:stopRec},"Stop")):null,
+h("div",{className:"br",style:{marginTop:"24px"}},
+h("button",{className:"bt bg",onClick:function(){setVw("interview");setCSec(secs.length-1);setCQ(secs[secs.length-1].qs.length-1)}},"\u2190 Back"),
+h("button",{className:"bt bp",onClick:function(){if(isRec)stopRec();setVw("export")}},"Finish & Export \u2192")))))
+}
+
+if(vw==="export"){
+var rated=0,tR=0;Object.keys(qRat).forEach(function(k){if(qRat[k]>0){rated++;tR+=qRat[k]}});
+var avgR=rated>0?Math.round(tR/rated*10)/10:0;
+var mnC=0;Object.keys(mNotes).forEach(function(k){if(mNotes[k]&&mNotes[k].trim())mnC++});
+return h("div",null,
+h("div",{className:"hdr"},h("h1",null,"\uD83C\uDF3F Talk to the..."),h("p",null,qs.name+" - Export")),
+h("div",{className:"mn"},
+h("div",{className:"cd"},
+h("div",{className:"tg"},"Interview Complete"),
+h("div",{style:{fontSize:"18px",fontWeight:"700",color:"#1B4332",marginBottom:"4px"}},(con.display_name||"Participant")+" - "+new Date().toLocaleDateString()),
+h("div",{className:"mt",style:{marginBottom:"8px"}},ans+" of "+tot+" questions have notes"),
+rated>0?h("div",{className:"mt sm",style:{marginBottom:"8px"}},"\u2605 "+rated+" rated (avg "+avgR+"/5) | \uD83D\uDCDD "+mnC+" interviewer notes"):null,
+h("div",{style:{display:"flex",gap:"10px",flexWrap:"wrap",marginBottom:"24px"}},
+h("button",{className:"bt bp",onClick:dlTxt},"\uD83D\uDCC4 Save Transcript (.txt)"),
+ch.current.length>0?h("button",{className:"bt bs",onClick:dlAudio},"\uD83C\uDFA4 Save Audio (.webm)"):null),
+h("div",{className:"pb"},
+h("div",{style:{fontSize:"11px",fontWeight:"700",color:"#E8A838",marginBottom:"4px"}},"NEXT: TRANSCRIPTION"),
+"Open the .webm in aTrain, MacWhisper, or Vibe for a full speaker-labeled transcript."),
+hl?h("div",{className:"pb",style:{marginTop:"12px"}},
+h("div",{style:{fontSize:"11px",fontWeight:"700",color:"#E8A838",marginBottom:"4px"}},"HEADLINE"),
+h("div",{style:{fontStyle:"italic"}},hl)):null),
+h("div",{className:"cd"},
+h("div",{className:"tg"},"Feedback on Question Set"),
+fbs?h("div",{style:{padding:"12px",background:"#E8F0E8",borderRadius:"8px",color:"#2D6A4F",fontWeight:"600"}},"\u2713 Thank you!")
+:h("div",null,
+h("textarea",{value:fb,onChange:function(ev){setFb(ev.target.value)},placeholder:"Suggestions...",rows:3}),
+h("div",{className:"br",style:{justifyContent:"flex-end"}},h("button",{className:"bt bs",onClick:function(){setFbs(true)}},"Submit")))),
+h("div",{style:{textAlign:"center",marginTop:"16px"}},h("button",{className:"bt bg",onClick:reset},"Start New Interview"))))
+}
+
+/* INTERVIEW */
+var navBtns=[];secs.forEach(function(s,si){
+navBtns.push(h("button",{key:s.id,className:si===cSec?"nb nba":"nb",onClick:function(){setCSec(si);setCQ(0)}},
+s.title.length>28?s.title.slice(0,26)+"...":s.title))});
+var dots=[];sec.qs.forEach(function(qi,idx){
+dots.push(h("div",{key:qi.id,className:"dt"+(idx===cQ?" dta":"")+(notes[qi.id]&&notes[qi.id].trim()?" dtf":""),
+onClick:function(){setCQ(idx)}},idx+1))});
+
+return h("div",null,
+h("div",{className:"hdr"},
+h("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center"}},
+h("div",null,h("h1",null,"\uD83C\uDF3F Talk to the..."),h("p",null,qs.name+" v"+qs.v)),
+h("div",{style:{fontSize:"13px",opacity:.8}},con.display_name||"")),
+h("div",{className:"pgb"},h("div",{className:"pf",style:{width:(tot>0?ans/tot*100:0)+"%"}}))),
+h("div",{className:"snv"},navBtns),
+h("div",{className:"mn"},
+h("div",{className:isRec?"rc rcon":"rc"},
+h("div",{className:isRec?"rd rdon":"rd"}),
+isRec?h(F,null,h("span",{className:"rl rlon"},"REC "+fm(rt)),h("button",{className:"bt bd bts",onClick:stopRec},"Pause"))
+:h(F,null,h("span",{className:"rl"},rt>0?"Paused "+fm(rt):"Not recording"),h("button",{className:"bt bs bts",onClick:startRec},rt>0?"Resume":"Start Recording"))),
+h("div",{className:"ds"},dots),
+h("div",{className:"cd"},
+h("div",{className:"tg"},sec.title),
+sec.sub?h("div",{className:"mt sm",style:{marginBottom:"12px"}},sec.sub):null,
+h("div",{className:"qt"},q.t),
+h("div",{className:"pb"},"\uD83D\uDCA1 "+q.p),
+h("textarea",{value:notes[q.id]||"",onChange:function(ev){var n=cp(notes);n[q.id]=ev.target.value;setNotes(n)},placeholder:"Notes from participant response..."}),
+h("div",{className:"qsec"},
+h("div",{className:"qsl"},"Question Quality"),
+mkStars(q.id)),
+h("div",{className:"mnb"},
+h("label",null,"Interviewer note (not shared with participant)"),
+h("textarea",{value:mNotes[q.id]||"",onChange:function(ev){var m=cp(mNotes);m[q.id]=ev.target.value;setMNotes(m)},placeholder:"Did this question land well? Confusing? Good discussion? Suggest rewording?"})),
+h("div",{className:"br"},
+h("button",{className:"bt bg",onClick:pv,disabled:cSec===0&&cQ===0},"\u2190 Previous"),
+h("span",{className:"mt sm"},(cSec+1)+"."+(cQ+1)),
+h("button",{className:"bt bp",onClick:nx},cSec===secs.length-1&&cQ===sec.qs.length-1?"Close Interview \u2192":"Next \u2192")))))
+}
+
+ReactDOM.render(h(App),document.getElementById("root"));
+})();
+</script>
+</body>
+</html>
